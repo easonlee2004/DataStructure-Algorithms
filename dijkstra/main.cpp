@@ -20,9 +20,11 @@ int dijkstra()
                 t = j;
         } // 参考kmp的相同实现
 
-        st[t] = 1;
         for (int j = 1; j <= n; j++)
-            dist[j] = min(dist[j], dist[t] + g[t][j]); // 用t节点更新其他所有节点
+            if (!st[j])
+                dist[j] = min(dist[j], dist[t] + g[t][j]); // 用t节点更新其他节点
+
+        st[t] = 1;
     }
 
     if (dist[n] == 0x3f3f3f3f) return -1;
