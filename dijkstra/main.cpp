@@ -11,7 +11,7 @@ int dijkstra()
     memset(dist, 0x3f, sizeof dist); // 所有dist置为无穷大
     dist[1] = 0;
 
-    for (int i = 0; i < n - 1; i++)
+    for (int i = 0; i < n ; i++)
     {
         int t = -1;
         for (int j = 1; j <= n; j++)
@@ -33,6 +33,9 @@ int dijkstra()
 // 若接受输出a, b，输出a到b距离
 // 则设置dist[a]=0
 // 返回值为dist[b]
+
+// 第一轮只有dist[1]为0，其他都为无穷，因此t一定是1，用t更新连接1的所有节点
+// 也有的在初始化时把于1相连的点dist设置好
 
 int main()
 {
