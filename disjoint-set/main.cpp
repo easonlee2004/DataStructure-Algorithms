@@ -14,10 +14,8 @@ int find(int i)
     // return find(p[i]);
 
     // 路径压缩并查集
-    p[i] = find(p[i]);
+    p[i] = find(p[i]); // p[i]永远指向根节点，所以find返回值都是根节点
     return p[i];
-
-    // 这里每一层find(p[i])的返回值都是根节点，可以手动模拟验证
 }
 
 void merge(int a, int b) // 这里ab不一定是根，可以是普通节点
