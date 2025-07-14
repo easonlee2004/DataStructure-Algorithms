@@ -5,8 +5,14 @@ const int N = 10000;
 int n;
 int arr[N];
 
-void merge(int l, int m, int r)
+void mergesort(int l, int r)
 {
+    if (l == r) return; // 边界条件
+    int m = (l + r) / 2;
+    mergesort(l, m);
+    mergesort(m + 1, r);
+    
+    // merge操作
     int help[N];
     int a = l, b = m + 1, idx = l; // idx容易被误认为从0开始
     while (a <= m && b <= r) // 双指针将小的元素放入help数组
@@ -20,15 +26,6 @@ void merge(int l, int m, int r)
 
     for (int i = l; i <= r; i++)
         arr[i] = help[i];
-}
-
-void mergesort(int l, int r)
-{
-    if (l == r) return; // 边界条件
-    int m = (l + r) / 2;
-    mergesort(l, m);
-    mergesort(m + 1, r);
-    merge(l, m, r);
 }
 
 int main()
