@@ -13,7 +13,7 @@ int a[N];
 // 代表处理个、十、百、千、万
 void radix_sort()
 {
-    int s[N]; // 计数数组
+    int s[10]; // 计数数组
     int help[N]; // 相当于桶
     for (int offset = 1; bits > 0; offset *= 10, bits--) // 每轮处理完bits少一位
     {
