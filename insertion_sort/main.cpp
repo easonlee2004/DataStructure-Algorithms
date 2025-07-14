@@ -16,7 +16,7 @@ void insertion_sort()
         int j;
         for (j = i - 1; j >= 0 && a[j] > temp; j--) // 此处不要写成a[j] > a[i]，应该用temp
             a[j + 1] = a[j];
-        a[j + 1] = temp;
+        a[j + 1] = temp; // j指向小于temp的数，所以插入位置为j+1
     }
 }
 
